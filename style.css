@@ -1,0 +1,18 @@
+header {
+    padding: 10px;
+    padding-left: 70px;
+    background-color: rgb(48, 45, 45);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(26, 25, 25);
+    color: rgb(47, 255, 47);
+}
+
+main {
+    max-width: 1200px;
+    min-height: 100px;
+    margin: auto;
+}
