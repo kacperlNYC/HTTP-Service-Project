@@ -128,6 +128,7 @@ app.post('/api/songs', (req,res) => {
     res.status(200).send(song)
 });
 
+// PUT Requests
 app.put('/api/songs/:id', (req,res)=>{
     let song = songs.find((s) => s.id === parseInt(req.params.id))
     if (!song) {
@@ -149,7 +150,8 @@ app.put('/api/songs/:id', (req,res)=>{
         res.status(200).send(song)
     }
 });
-    
+
+// Delete Requests
 app.delete('/api/songs/:id', (req,res)=>{
     let song = songs.find(s => s.id === parseInt(req.params.id))
     if (!song)
