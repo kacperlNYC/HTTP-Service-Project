@@ -131,7 +131,7 @@ app.put('/api/songs/:id', (req,res)=>{
     {
         res.status(404).send("Genre and name required")
     }
-    else if (req.body.name < 3 || req.body.name > 32)
+    else if (req.body.name.length < 3 || req.body.name.length > 32)
     {
         res.status(404).send('Song name must be between 3 and 32 characters')
         return
