@@ -5,7 +5,9 @@ const app = express()
 const genres = ["Pop", "Hip-Hop", "Rap", "Classical", "Rock", "Jazz", "Blues", "Electronic"]
 
 const songs = [
-    {id: 1, name:"Name", genre: "pop", year: 2023, month: "January"}
+    {id: 1, name:"Love and War", genre: "Pop", year: 2023, month: "January"},
+    {id: 2, name:"Buddy", genre: "Rap", year: 2022, month: "May"},
+    {id: 3, name:"Violet", genre: "Rap", year: 2022, month: "February"},
 ]
 
 app.use(express.json())
@@ -89,9 +91,9 @@ app.post('/api/songs', (req,res) => {
     let year = req.body.year
     let month = req.body.month
 
-    if (!genres.includes(genre))
+    if (!genre || !name)
     {
-        res.status(404).send("Invalid Song Genre")
+        res.status(404).send("Genre and name required")
         return
     }
     else if (name.length < 3 || name.length > 32)
@@ -125,19 +127,18 @@ app.put('/api/songs/:id', (req,res)=>{
         res.status(404).send('The song was not found')
         return
     }
+    else if (!req.body.genre || !req.body.name)
+    {
+        res.status(404).send("Genre and name required")
+    }
     else if (req.body.name < 3 || req.body.name > 32)
     {
         res.status(404).send('Song name must be between 3 and 32 characters')
         return
     }
-    else if (!genres.includes(req.body.genre))
-    {
-        res.status(404).send('Invalid genre')
-    }
     else {
         song["name"] = req.body.name
         song["genre"] = req.body.genre;
-        // TODO: add date?
         res.status(200).send(song)
     }
 });
