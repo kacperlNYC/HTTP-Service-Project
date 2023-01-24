@@ -1,4 +1,11 @@
 // Kacper Letowski Web Dev Period 7 8
+
+/*
+(1) In order for programs to communicate, they use APIs. If a program wants to optain information from another program, they would send a GET request.
+    If the program wants to update, add, or change something in the other program they would send a POST, PUT, or DELETE request.
+(2) In this project I learned more about APIs and how to create one using ExpressJS.
+(3) This project can be further extended through the use of React to deliver non-static files with these songs through an API.
+*/
 const express = require('express');
 const app = express()
 
